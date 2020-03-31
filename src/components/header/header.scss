@@ -1,0 +1,56 @@
+@import '../../style.scss';
+
+.header {
+   // min-height: 100vh;
+    display: inline-flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    font-size: calc(10px + 2vmin);
+    color: $text-color;
+    position: relative;
+    margin: 1rem ;
+    
+    background-color: #FFFFFF;
+  };
+
+  .info-box {
+     position: relative;
+     text-align: right;
+     flex-direction: column;
+  };
+
+  @media (max-width: 575px) {
+      .header{
+          width: 100%;
+          flex-direction: column;
+      }
+  }
+
+  @media (min-width: 576px){
+    .header {
+        flex-direction: row;
+        width: 35rem;
+        height: 10rem;
+      };  
+}
+
+  @media (min-width: 768px){
+    .header {
+        width: 40rem;
+        height: 10rem;
+      };  
+}
+
+@media (min-width: 992px){
+    .header {
+        width: 50rem;
+        height: 10rem;
+      };  
+}
+
+  @media (min-width: 1200px){
+  .header {
+    width: 50rem;
+    height: 20rem;
+  };
+}

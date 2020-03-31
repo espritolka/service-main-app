@@ -1,0 +1,26 @@
+@import '../../../style.scss';
+
+.button-main {
+    position: relative;    
+    background: $primary-color;
+    border-radius: 60px;
+    height: 100%;
+    width: 100%;
+};
+
+.button-text {
+    position: relative;
+    font-family: $font-stack;
+    font-size: 18px;
+    line-height: 24px;
+    text-align: center;
+    color: $background-color;
+};
+
+.button-box {
+    position: relative;
+    width: 190px;
+    height: 60px;
+    //left: 608px;
+    top: 100px;
+}

@@ -1,0 +1,35 @@
+@import './style.scss';
+
+.App {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background-color: darken($color: #000000, $amount: 0);
+}
+
+.App-main {
+  display: inline-flex;
+  flex-direction: row;
+  position: relative;
+  background-color: blue;
+};
+
+//.App-logo {
+  //   height: 40vmin;
+  //   pointer-events: none;
+  // }
+// @media (prefers-reduced-motion: no-preference) {
+//   .App-logo {
+//     animation: App-logo-spin infinite 20s linear;
+//   }
+// }
+
+// @keyframes App-logo-spin {
+//   from {
+//     transform: rotate(0);
+//   }
+//   to {
+//     transform: rotate(360deg);
+//   }
+// }

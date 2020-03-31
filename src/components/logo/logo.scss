@@ -1,0 +1,53 @@
+@import '../../style.scss';
+
+.logo {
+    font-size: 36px;
+    position: relative;
+    height: 4em;
+  };
+
+  .line {
+    border: 0.5rem solid $primary-color;
+    position: absolute;
+    width: 4.5em;
+    height: 0px;
+    bottom: 0.5em;
+    z-index: 0;
+  };
+
+  .logo-text {
+    font-weight: 500;
+    font-size: 36px;
+    line-height: 48px;
+    letter-spacing: 0.1em;
+    position: relative;
+    height: 113px;
+    text-align: left;
+    z-index: 1;
+    color: $text-color
+  };
+
+
+  @media (min-width: 992px){
+  .logo {
+    width: 10em;
+  };
+  }; 
+
+  @media (min-width: 768px){
+    .logo {
+        width: 8em;
+    };
+  };
+
+  @media (min-width: 576px){
+    .logo {
+        width: 5em;
+    };
+  };
+
+    @media (max-width: 575px){
+    .logo {
+        width: 5em;
+    };
+  };
