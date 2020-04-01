@@ -1,0 +1,14 @@
+@import '../../style.scss';
+
+.container {
+    position: relative;
+    width: 60%;
+    padding: 2em;
+};
+
+.form-style {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    text-align: left;
+}

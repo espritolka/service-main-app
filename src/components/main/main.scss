@@ -1,0 +1,47 @@
+@import '../../style.scss';
+
+.App-main {
+    display: inline-flex;
+    position: relative;
+    background-color:$background-color;
+    align-items: stretch;
+    justify-content: space-around;
+  };
+
+  .right-box {
+     text-align: right;
+ 
+  }
+
+  @media (max-width: 575px) {
+    .App-main{
+        width: 95%;
+        flex-direction: column;
+    }
+    .right-box{
+      width: 100%;
+    }
+}
+
+@media (min-width: 576px){
+   .App-main {
+      width: 35rem;
+    flex-direction: row-reverse;
+    };  
+    .right-box{
+      width: 40%;
+    }
+}
+
+@media (min-width: 768px){
+  .App-main {
+      width: 40rem;
+    };  
+}
+
+@media (min-width: 992px){
+  .App-main {
+      width: 50rem;
+      
+    };  
+}

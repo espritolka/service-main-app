@@ -9,8 +9,8 @@
     color: $text-color;
     position: relative;
     margin: 1rem ;
-    
-    background-color: #FFFFFF;
+    height: 10rem;
+    background-color: $background-color;
   };
 
   .info-box {
@@ -21,8 +21,12 @@
 
   @media (max-width: 575px) {
       .header{
-          width: 100%;
+          width: 95%;
           flex-direction: column;
+          min-height: 17rem;
+      }
+      .info-box{
+        width: 100%;
       }
   }
 
@@ -30,27 +34,18 @@
     .header {
         flex-direction: row;
         width: 35rem;
-        height: 10rem;
       };  
 }
 
   @media (min-width: 768px){
     .header {
         width: 40rem;
-        height: 10rem;
       };  
 }
 
 @media (min-width: 992px){
     .header {
         width: 50rem;
-        height: 10rem;
       };  
 }
 
-  @media (min-width: 1200px){
-  .header {
-    width: 50rem;
-    height: 20rem;
-  };
-}
