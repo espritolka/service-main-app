@@ -3,6 +3,7 @@ import Select from '../generic/select/select';
 import Input from '../generic/input/input';
 import Text from '../generic/text/text';
 import DatePickerCastom from '../generic/datePicker/datePicker';
+import ButtonMain from '../generic/button/button'
 import './formContainer.scss';
 
 
@@ -33,16 +34,16 @@ const handleChangeType = (value) => {
         <div className = 'container'>
             <form className = 'form-style'>
                 <Text type='small'>Выберите</Text>
-                {/* <DatePickerCastom
+                <DatePickerCastom
                     id={'date'}
                     labelText={'Дата'}
                     error={ false }
-                    //value = {new Date()}
+                    value = {new Date()}
                     inputProps ={{
                         onChange: handleChangeType,
                         selectOptions: dataOptions,
             }}
-                /> */}
+                />
                 <Select  
                     id={'time'}
                     labelText={'Время'}
@@ -94,6 +95,7 @@ const handleChangeType = (value) => {
                 }}
                 />
             </form>
+            <ButtonMain>Записаться</ButtonMain>
         </div>
     )
 }

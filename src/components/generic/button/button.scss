@@ -5,7 +5,7 @@
     background: $primary-color;
     border-radius: 60px;
     height: 100%;
-    width: 100%;
+    width: 15em;
 };
 
 .button-text {
@@ -19,8 +19,7 @@
 
 .button-box {
     position: relative;
-    width: 190px;
+    width: 100%;
     height: 60px;
-    //left: 608px;
-    top: 100px;
+    top: 2em;
 }
