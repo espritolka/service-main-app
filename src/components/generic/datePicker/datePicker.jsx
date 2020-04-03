@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import PropTypes from 'prop-types'
 import './datePicker.scss';
 import {
     ThemeProvider,
@@ -121,6 +122,15 @@ const DatePickerCastom = ({...props}) => {
     )
 }
 
+DatePickerCastom.propTypes = {
+    onChange: PropTypes.func.isRequired,
+    labelText: PropTypes.string.isRequired,
+    id: PropTypes.string.isRequired,
+    error: PropTypes.string,
+  }
 
+DatePickerCastom.defaultProps = {
+    value: new Date()
+};
 
 export default DatePickerCastom;
