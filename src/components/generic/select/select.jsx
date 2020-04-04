@@ -1,6 +1,7 @@
 import React from "react";
 import './select.scss';
 import AsyncSelect from 'react-select/async';
+import PropTypes from "prop-types";
 
 
 const Select = ({ ...props }) => {
@@ -51,6 +52,18 @@ const Select = ({ ...props }) => {
         </div>
     )
 }
+
+Select.propTypes = {
+    onChange: PropTypes.func.isRequired,
+    labelText: PropTypes.string.isRequired,
+    id: PropTypes.string.isRequired,
+    error: PropTypes.string,
+    loadOptions: PropTypes.func
+  }
+
+  Select.defaultProps = {
+    id: 'newSelect',
+};
 
 
 export default Select

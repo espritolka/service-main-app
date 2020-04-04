@@ -1,5 +1,7 @@
 import React from 'react';
-import './button.scss'
+import './button.scss';
+import PropTypes from 'prop-types'
+
 
 const ButtonMain = (props) => {
 
@@ -10,5 +12,15 @@ const ButtonMain = (props) => {
         </div>
     )
 }
+
+ButtonMain.propTypes = {
+    children: PropTypes.string,
+    onClickButton: PropTypes.func
+  }
+
+  ButtonMain.defaultProps = {
+    children: 'Button',
+    onClickButton: () => alert('click button')
+};
 
 export default ButtonMain;

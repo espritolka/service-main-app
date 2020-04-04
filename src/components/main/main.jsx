@@ -8,10 +8,11 @@ import { connect } from "react-redux";
 import * as registerActions from "../../redux/actions/";
 
 const Main = (props) => {
+
 React.useEffect(()=>{
     props.getDirectoryTime()
-console.log('test',props)
 }, [])
+
     return(
         <main className = 'App-main'>
          <div className = 'right-box'><Text type='big'>Запишитесь онлайн</Text>

@@ -4,6 +4,38 @@ const defaultState = {
     time: [],
     alertCustom: false,
     error: {},
+    data: {
+            schedule : {
+                        _id : "",
+                        master : {
+                                 _id : "",
+                                 name : "",
+                                 value : "",
+                                 label : ""
+                                },
+                        time : {  
+                                _id : "",
+                                type : "",
+                                label : "",
+                                value: ""
+                               },
+                        date: new Date(),
+                        free: true,
+                        register: {
+                                id :null
+                                  },
+                    },
+            service : {
+                        _id : "",
+                        name : "",
+                        price : "",
+                    },
+            client : {
+                        email : "",
+                        name : "",
+                        phone : ""
+                    }
+    }
 };
 
 export const registerReducer = function(state = defaultState, action) {

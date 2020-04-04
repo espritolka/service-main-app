@@ -3,12 +3,15 @@ import Select from '../generic/select/select';
 import Input from '../generic/input/input';
 import Text from '../generic/text/text';
 import DatePickerCastom from '../generic/datePicker/datePicker';
-import ButtonMain from '../generic/button/button'
+import ButtonMain from '../generic/button/button';
+import PropTypes from 'prop-types';
 import './formContainer.scss';
 
 
 
 const FormContainer = (props) => {
+
+const { time } = props
 
 const [dataOptions, setDataOptions] = React.useState([{value:'1', label: 'test'},{value:'2', label: 'test2'}])
 const [valueSelect, setValueSelect] = React.useState({value:'2', label: 'test2'})
@@ -98,6 +101,14 @@ const handleChangeType = (value) => {
             <ButtonMain>Записаться</ButtonMain>
         </div>
     )
+}
+
+
+FormContainer.propTypes = {
+    time : PropTypes.arrayOf(PropTypes.exact({
+        value: PropTypes.string.isRequired,
+        label: PropTypes.string.isRequired
+    }))
 }
 
 export default FormContainer

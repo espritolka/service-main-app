@@ -130,7 +130,8 @@ DatePickerCastom.propTypes = {
   }
 
 DatePickerCastom.defaultProps = {
-    value: new Date()
+    value: new Date(),
+    id: 'new',
 };
 
 export default DatePickerCastom;
