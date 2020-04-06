@@ -1,0 +1,4 @@
+
+export const SET_ALERT                  = "SET_ALERT";
+export const GET_DIRECTORY_TIME_SUCCESS = "GET_DIRECTORY_TIME_SUCCESS";
+export const GET_DIRECTORY_TIME_ERROR   = "GET_DIRECTORY_TIME_ERROR";

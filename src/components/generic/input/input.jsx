@@ -34,4 +34,15 @@ const Input = ({ ...props }) => {
     )
 }
 
+Input.propTypes = {
+    onChange: PropTypes.func.isRequired,
+    labelText: PropTypes.string.isRequired,
+    id: PropTypes.string.isRequired,
+    error: PropTypes.string,
+  }
+
+  Input.defaultProps = {
+    id: 'newInput',
+};
+
 export default Input

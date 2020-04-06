@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import PropTypes from 'prop-types'
 import './datePicker.scss';
 import {
     ThemeProvider,
@@ -32,6 +33,12 @@ const materialTheme = createMuiTheme({
 		},
 	},
     overrides: {
+        MuiFormControl: {
+            marginNormal: {
+                marginTop: '0px',
+                marginBottom: '0px'
+            },
+        },
         MuiInputBase: {
             input: {
                 'padding': '6px 0 0px',
@@ -97,7 +104,7 @@ const DatePickerCastom = ({...props}) => {
                            disableToolbar
                            inputVariant ="outlined"
                             moment={ moment.tz.setDefault('MSK')}
-                          //  helperText={ error }
+                           // helperText={ error }
                             error={ error }
                             labelText={false}
                             margin="normal"
@@ -121,6 +128,16 @@ const DatePickerCastom = ({...props}) => {
     )
 }
 
+DatePickerCastom.propTypes = {
+    onChange: PropTypes.func.isRequired,
+    labelText: PropTypes.string.isRequired,
+    id: PropTypes.string.isRequired,
+    error: PropTypes.string,
+  }
 
+DatePickerCastom.defaultProps = {
+    value: new Date(),
+    id: 'new',
+};
 
 export default DatePickerCastom;

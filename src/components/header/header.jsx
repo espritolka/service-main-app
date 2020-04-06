@@ -10,7 +10,7 @@ const Header = (props) => {
             <Logo/>
          <div className='info-box'>
           <Text type='small'>Для записи звоните</Text>
-          <Text type='big'>+ 7 (495) 555 - 55 - 55</Text>
+          <Text type='big'>+ 7 (495) 555-55-55</Text>
           <Text type='big'>или</Text>
          </div>
   
