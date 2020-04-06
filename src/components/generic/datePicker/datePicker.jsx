@@ -33,6 +33,12 @@ const materialTheme = createMuiTheme({
 		},
 	},
     overrides: {
+        MuiFormControl: {
+            marginNormal: {
+                marginTop: '0px',
+                marginBottom: '0px'
+            },
+        },
         MuiInputBase: {
             input: {
                 'padding': '6px 0 0px',
@@ -98,7 +104,7 @@ const DatePickerCastom = ({...props}) => {
                            disableToolbar
                            inputVariant ="outlined"
                             moment={ moment.tz.setDefault('MSK')}
-                          //  helperText={ error }
+                           // helperText={ error }
                             error={ error }
                             labelText={false}
                             margin="normal"
