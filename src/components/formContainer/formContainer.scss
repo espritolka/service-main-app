@@ -2,7 +2,6 @@
 
 .container {
     position: relative;
-    width: 60%;
     padding: 2em;
 };
 
@@ -12,3 +11,15 @@
     align-items: stretch;
     text-align: left;
 }
+
+@media (max-width: 575px) {
+    .container {
+        width: 80%;
+    };
+};
+
+@media (min-width: 576px){
+    .container {
+        width: 60%;
+    };
+};

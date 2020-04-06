@@ -6,6 +6,7 @@ import DatePickerCastom from '../generic/datePicker/datePicker';
 import ButtonMain from '../generic/button/button';
 import PropTypes from 'prop-types';
 import './formContainer.scss';
+import StatusModal from '../statusModal/statusModal'
 
 
 
@@ -15,6 +16,11 @@ const { time } = props
 
 const [dataOptions, setDataOptions] = React.useState([{value:'1', label: 'test'},{value:'2', label: 'test2'}])
 const [valueSelect, setValueSelect] = React.useState({value:'2', label: 'test2'})
+const [open, setOpen] = React.useState(false)
+
+const handleClickButton = () => {
+    setOpen(true)
+}
   
 const handleChangeType = (value) => {
         setValueSelect(value)
@@ -35,6 +41,7 @@ const handleChangeType = (value) => {
 
     return(
         <div className = 'container'>
+            <StatusModal status={open} onClose = {() => setOpen(false)} {...props}/>
             <form className = 'form-style'>
                 <Text type='small'>Выберите</Text>
                 <DatePickerCastom
@@ -69,6 +76,8 @@ const handleChangeType = (value) => {
                         selectOptions: dataOptions,
                 }}
                 />
+                <br/>
+                <br/>
                 <Text type='small'>Контактная информация</Text>
                 <Input
                     id={'name'}
@@ -98,7 +107,7 @@ const handleChangeType = (value) => {
                 }}
                 />
             </form>
-            <ButtonMain>Записаться</ButtonMain>
+            <ButtonMain onClickButton = {() => handleClickButton()}>Записаться</ButtonMain>
         </div>
     )
 }
@@ -106,7 +115,6 @@ const handleChangeType = (value) => {
 
 FormContainer.propTypes = {
     time : PropTypes.arrayOf(PropTypes.exact({
-        value: PropTypes.string.isRequired,
         label: PropTypes.string.isRequired
     }))
 }

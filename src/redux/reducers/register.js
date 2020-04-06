@@ -1,7 +1,7 @@
 import actions from "../const"
 
 const defaultState = {
-    time: [],
+    time: [{_id: null, label:null}],
     alertCustom: false,
     error: {},
     data: {
@@ -9,14 +9,14 @@ const defaultState = {
                         _id : "",
                         master : {
                                  _id : "",
-                                 name : "",
+                                 name : "Дима",
                                  value : "",
                                  label : ""
                                 },
                         time : {  
                                 _id : "",
                                 type : "",
-                                label : "",
+                                label : "11.00",
                                 value: ""
                                },
                         date: new Date(),
@@ -27,7 +27,7 @@ const defaultState = {
                     },
             service : {
                         _id : "",
-                        name : "",
+                        name : "Маникюр классический",
                         price : "",
                     },
             client : {

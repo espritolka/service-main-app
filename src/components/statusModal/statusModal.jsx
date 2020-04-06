@@ -1,18 +1,54 @@
-import React from 'react';
+import React,  {useEffect} from 'react';
 import PropTypes from 'prop-types';
+import MainButtom from '../generic/button/button';
+import Text from '../generic/text/text';
+import * as methods from '../../methods/index'
+import './statusModal.scss';
 
+const dataColor = '#F64383';
 
+const StatusModal = (props) => {
+ 
+    const {status, data, onClose} = props;
+   
 
-const statusModal = (props) => {
+    useEffect(() => {
+        console.log(props)
+    }, []);   
 
+  const getModal = (isOpen) =>{
 
+    if (isOpen){
+        return (
+            <div className='dark-box'> 
+                <div className='main-box'>
+                       <Text type='big'>Поздравляем!</Text>
+                        <div className='info-box-modal'>
+                           <Text>Вы записались на <b className='text-primary'>{data.service.name}</b></Text>
+                            <Text>к мастеру <b className='text-primary'>{data.schedule.master.name}</b></Text>               
+
+                            <Text>Ждем вас <b className='text-primary'>{data.schedule.date.getDay() + " " +
+                           methods.getMonthText(data.schedule.date.getMonth())}</b></Text>
+                            <Text>в <b className='text-primary'>{data.schedule.time.label}</b></Text>
+                            <Text>По адресу м.Свободное ул.Проектируемая 55/5</Text> 
+                        </div>
+                    <MainButtom className ='button-modal' onClickButton={() => {onClose()}}>ОК</MainButtom>
+               </div>
+            </div> )
+    } else {
+      return  null
+    }
+
+}
 
     return(
-        <div></div>
+        <div>
+         {getModal(status)}
+        </div>
     )
 }
 
-statusModal.propTypes = {
+StatusModal.propTypes = {
     status: PropTypes.bool,
     data: PropTypes.shape({
         schedule: PropTypes.shape({
@@ -23,9 +59,8 @@ statusModal.propTypes = {
             time: PropTypes.shape({
                 _id: PropTypes.string,
                 label:PropTypes.string.isRequired
-            })
+            }),
         }),
-        date: PropTypes.string.isRequired,
         service: PropTypes.shape({
             _id: PropTypes.string,
             name:PropTypes.string.isRequired
@@ -34,8 +69,8 @@ statusModal.propTypes = {
     })
 }
 
-statusModal.defaultProps = {
+StatusModal.defaultProps = {
     status: false,
 }
 
-export default statusModal;
+export default StatusModal;

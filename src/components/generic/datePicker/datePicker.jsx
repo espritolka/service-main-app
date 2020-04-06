@@ -126,14 +126,15 @@ const DatePickerCastom = ({...props}) => {
                     </ThemeProvider>
          </div>
     )
-}
+};
+
 
 DatePickerCastom.propTypes = {
     onChange: PropTypes.func.isRequired,
     labelText: PropTypes.string.isRequired,
     id: PropTypes.string.isRequired,
     error: PropTypes.string,
-  }
+  };
 
 DatePickerCastom.defaultProps = {
     value: new Date(),

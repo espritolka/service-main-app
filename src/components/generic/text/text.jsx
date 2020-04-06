@@ -3,19 +3,23 @@ import './text.scss';
 import PropTypes from "prop-types";
 
 const Text = (props) => {
+
+const { color, type, children } = props
     
     return (
-    <p className={props.type + '-text'}>{props.children}</p>
+    <p className={type + '-text'} style={{color: `${color}`}}>{children}</p>
     )
 }
 
 Text.propTypes = {
     children: PropTypes.string.isRequired,
-    type: PropTypes.string
+    type: PropTypes.string,
+    color: PropTypes.string
 }
 
 Text.defaultProps = {
-    type: 'small'
+    type: 'small',
+    color: '#120E21'
 }
 
 export default Text

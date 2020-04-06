@@ -26,7 +26,9 @@ React.useEffect(()=>{
 
 const mapStateToProps = state => {
     return {
-      register: state.register.time,
+      time: state.register.time,
+      data: state.register.data,
+      error: state.register.error
     };
   };
   
