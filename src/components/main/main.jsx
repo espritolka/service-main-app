@@ -9,9 +9,6 @@ import * as registerActions from "../../redux/actions/";
 
 const Main = (props) => {
 
-React.useEffect(()=>{
-    props.getDirectoryTime()
-}, [])
 
     return(
         <main className = 'App-main'>
@@ -27,7 +24,10 @@ React.useEffect(()=>{
 const mapStateToProps = state => {
     return {
       time: state.register.time,
+      masters: state.register.masters,
+      services: state.register.services,
       data: state.register.data,
+      alertCustom: state.register.alertCustom,
       error: state.register.error
     };
   };

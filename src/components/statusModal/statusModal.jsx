@@ -5,16 +5,9 @@ import Text from '../generic/text/text';
 import * as methods from '../../methods/index'
 import './statusModal.scss';
 
-const dataColor = '#F64383';
-
 const StatusModal = (props) => {
  
-    const {status, data, onClose} = props;
-   
-
-    useEffect(() => {
-        console.log(props)
-    }, []);   
+  const { alertCustom, data, onClose } = props;
 
   const getModal = (isOpen) =>{
 
@@ -27,7 +20,7 @@ const StatusModal = (props) => {
                            <Text>Вы записались на <b className='text-primary'>{data.service.name}</b></Text>
                             <Text>к мастеру <b className='text-primary'>{data.schedule.master.name}</b></Text>               
 
-                            <Text>Ждем вас <b className='text-primary'>{data.schedule.date.getDay() + " " +
+                            <Text>Ждем вас <b className='text-primary'>{data.schedule.date.getDate() + " " +
                            methods.getMonthText(data.schedule.date.getMonth())}</b></Text>
                             <Text>в <b className='text-primary'>{data.schedule.time.label}</b></Text>
                             <Text>По адресу м.Свободное ул.Проектируемая 55/5</Text> 
@@ -43,7 +36,7 @@ const StatusModal = (props) => {
 
     return(
         <div>
-         {getModal(status)}
+         {getModal(alertCustom)}
         </div>
     )
 }

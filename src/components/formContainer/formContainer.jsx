@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Select from '../generic/select/select';
 import Input from '../generic/input/input';
 import Text from '../generic/text/text';
@@ -12,68 +12,65 @@ import StatusModal from '../statusModal/statusModal'
 
 const FormContainer = (props) => {
 
-const { time } = props
+const { data, time, services, masters, changeClientData, setAlert, changeScheduleData, 
+        changeServiceData, getDirectoryTime, getDirectoryService, getMasters, createRegister } = props
 
-const [dataOptions, setDataOptions] = React.useState([{value:'1', label: 'test'},{value:'2', label: 'test2'}])
-const [valueSelect, setValueSelect] = React.useState({value:'2', label: 'test2'})
-const [open, setOpen] = React.useState(false)
+    useEffect(() => {
+        getDirectoryTime();
+        getDirectoryService();
+    }, [])
+
+    useEffect(() => {
+
+        data.schedule.time._id && data.schedule.date && getMasters(data.schedule.date, data.schedule.time._id)
+
+    }, [data.schedule.time._id, data.schedule.date])
+
 
 const handleClickButton = () => {
-    setOpen(true)
+    createRegister(data)
 }
-  
-const handleChangeType = (value) => {
-        setValueSelect(value)
-    }
-
-    const filter = (inputValue) =>
-    dataOptions.filter(i =>
-    i.label.toLowerCase().includes(inputValue.toLowerCase())
-  );
-
-    const promiseOptions = inputValue =>
-    new Promise(resolve => {
-      setTimeout(() => {
-        resolve(filter(inputValue));
-      }, 1000);
-    });
-
 
     return(
         <div className = 'container'>
-            <StatusModal status={open} onClose = {() => setOpen(false)} {...props}/>
+            <StatusModal onClose = {() => setAlert(false)} {...props}/>
             <form className = 'form-style'>
                 <Text type='small'>Выберите</Text>
                 <DatePickerCastom
                     id={'date'}
                     labelText={'Дата'}
                     error={ false }
-                    value = {new Date()}
-                    inputProps ={{
-                        onChange: handleChangeType,
-                        selectOptions: dataOptions,
-            }}
+                    value = {data.schedule.date}
+                    onChange = {(value) => changeScheduleData('date', value)}
                 />
-                <Select  
+               <Select  
                     id={'time'}
                     labelText={'Время'}
                     error={ false }
-                    loadOptions = {(inputValue, name) => promiseOptions(inputValue, name)}
                     inputProps ={{
-                        value: valueSelect,
-                        onChange: handleChangeType,
-                        selectOptions: dataOptions,
+                        value: data.schedule.time,
+                        onChange: (value) => { changeScheduleData('time', value) },
+                        selectOptions: time,
                 }}
                 />
                 <Select  
                     id={'master'}
                     labelText={'Мастер'}
                     error={ false }
-                    loadOptions = {(inputValue, name) => promiseOptions(inputValue, name)}
                     inputProps ={{
-                        value: valueSelect,
-                        onChange: handleChangeType,
-                        selectOptions: dataOptions,
+                        value: data.schedule.master,
+                        onChange: (value) => { changeScheduleData('master', value) },
+                        selectOptions: masters,
+                }}
+                />
+                 <Select  
+                    id={'service'}
+                    labelText={'Услуга'}
+                    error={ false }
+                    inputProps ={{
+                        value: data.service,
+                        onChange: (value) => { changeServiceData( value ) },
+                        selectOptions: services,
                 }}
                 />
                 <br/>
@@ -84,8 +81,8 @@ const handleChangeType = (value) => {
                     labelText={'ФИО'}
                     error={false}
                     inputProps ={{
-                        value: 'test',
-                        onChange: handleChangeType
+                        value: data.client.name,
+                        onChange: (e) => changeClientData('name',e.target.value)
                 }}
                 />
                 <Input
@@ -93,8 +90,8 @@ const handleChangeType = (value) => {
                     labelText={'Телефон'}
                     error={false}
                     inputProps ={{
-                        value: '',
-                        onChange: handleChangeType
+                        value: data.client.phone,
+                        onChange: (e) => changeClientData('phone',e.target.value)
                 }}
                 />
                 <Input
@@ -102,8 +99,8 @@ const handleChangeType = (value) => {
                     labelText={'Email'}
                     error={false}
                     inputProps ={{
-                        value: '',
-                        onChange: handleChangeType
+                        value: data.client.email,
+                        onChange: (e) => changeClientData('email',e.target.value)
                 }}
                 />
             </form>

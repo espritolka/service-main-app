@@ -92,9 +92,6 @@ const DatePickerCastom = ({...props}) => {
 
     var labelClassName = error ? 'error': 'def'
 
-    const [startDate, setStartDate] = useState(value);
-    const [focusedInput, setFocusedInput] = useState(false)
-
     return(
         <div className='form-control'>
            <label htmlFor={id} className={labelClassName}  {...labelProps}>{labelText}</label>

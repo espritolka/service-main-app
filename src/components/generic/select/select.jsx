@@ -1,6 +1,6 @@
 import React from "react";
 import './select.scss';
-import AsyncSelect from 'react-select/async';
+import AsyncSelect from 'react-select';
 import PropTypes from "prop-types";
 
 
@@ -43,9 +43,11 @@ const Select = ({ ...props }) => {
             <AsyncSelect
                 id={id}
                 name={id}
-                loadOptions={(inputValue) => loadOptions(inputValue, id)}
+              //  loadOptions={(inputValue) => loadOptions(inputValue, id)}
                 onChange={ onChange }
+                options={inputProps.selectOptions}
                 styles={customStyles}
+                placeholder={'Выбрать'}
                 defaultOptions
                 {...inputProps}
       />
