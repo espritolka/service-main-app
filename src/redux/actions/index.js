@@ -72,7 +72,7 @@ export const createRegister = (data) => {
             .catch((error)=>{
                 dispatch({
                     type: actions.CREATE_REGISTER_ERROR,
-                    payload: error
+                    payload: error.response.data.errors
                 });
             })
     }

@@ -29,6 +29,7 @@ const Input = ({ ...props }) => {
                  {...inputProps}
               />
               </div>
+              <p className='error-help-text'>{error}</p>
         </div>
        
     )

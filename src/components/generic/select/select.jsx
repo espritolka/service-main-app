@@ -2,6 +2,7 @@ import React from "react";
 import './select.scss';
 import AsyncSelect from 'react-select';
 import PropTypes from "prop-types";
+import Text from '../text/text'
 
 
 const Select = ({ ...props }) => {
@@ -43,7 +44,6 @@ const Select = ({ ...props }) => {
             <AsyncSelect
                 id={id}
                 name={id}
-              //  loadOptions={(inputValue) => loadOptions(inputValue, id)}
                 onChange={ onChange }
                 options={inputProps.selectOptions}
                 styles={customStyles}
@@ -51,6 +51,7 @@ const Select = ({ ...props }) => {
                 defaultOptions
                 {...inputProps}
       />
+             <p className="error-help-text"> {error}</p>
         </div>
     )
 }

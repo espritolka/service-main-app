@@ -12,7 +12,7 @@ import StatusModal from '../statusModal/statusModal'
 
 const FormContainer = (props) => {
 
-const { data, time, services, masters, changeClientData, setAlert, changeScheduleData, 
+const { data, time, services, masters, changeClientData, setAlert, changeScheduleData, error,
         changeServiceData, getDirectoryTime, getDirectoryService, getMasters, createRegister } = props
 
     useEffect(() => {
@@ -39,14 +39,14 @@ const handleClickButton = () => {
                 <DatePickerCastom
                     id={'date'}
                     labelText={'Дата'}
-                    error={ false }
+                    error={ error.data['schedule.date'] }
                     value = {data.schedule.date}
                     onChange = {(value) => changeScheduleData('date', value)}
                 />
                <Select  
                     id={'time'}
                     labelText={'Время'}
-                    error={ false }
+                    error={  error.data['schedule.time._id']}
                     inputProps ={{
                         value: data.schedule.time,
                         onChange: (value) => { changeScheduleData('time', value) },
@@ -56,7 +56,7 @@ const handleClickButton = () => {
                 <Select  
                     id={'master'}
                     labelText={'Мастер'}
-                    error={ false }
+                    error={ error.data['schedule.master._id'] }
                     inputProps ={{
                         value: data.schedule.master,
                         onChange: (value) => { changeScheduleData('master', value) },
@@ -66,7 +66,7 @@ const handleClickButton = () => {
                  <Select  
                     id={'service'}
                     labelText={'Услуга'}
-                    error={ false }
+                    error={ error.data['service._id'] }
                     inputProps ={{
                         value: data.service,
                         onChange: (value) => { changeServiceData( value ) },
@@ -79,7 +79,7 @@ const handleClickButton = () => {
                 <Input
                     id={'name'}
                     labelText={'ФИО'}
-                    error={false}
+                    error={error.data['client.name']}
                     inputProps ={{
                         value: data.client.name,
                         onChange: (e) => changeClientData('name',e.target.value)
@@ -88,7 +88,7 @@ const handleClickButton = () => {
                 <Input
                     id={'phone'}
                     labelText={'Телефон'}
-                    error={false}
+                    error={error.data['client.phone']}
                     inputProps ={{
                         value: data.client.phone,
                         onChange: (e) => changeClientData('phone',e.target.value)
@@ -97,7 +97,7 @@ const handleClickButton = () => {
                 <Input
                     id={'email'}
                     labelText={'Email'}
-                    error={false}
+                    error={error.data['client.email']}
                     inputProps ={{
                         value: data.client.email,
                         onChange: (e) => changeClientData('email',e.target.value)
@@ -112,7 +112,12 @@ const handleClickButton = () => {
 
 FormContainer.propTypes = {
     time : PropTypes.arrayOf(PropTypes.exact({
-        label: PropTypes.string.isRequired
+        label: PropTypes.string.isRequired,
+        value: PropTypes.string.isRequired
+    })),
+    services : PropTypes.arrayOf(PropTypes.exact({
+        label: PropTypes.string.isRequired,
+        value: PropTypes.string.isRequired
     }))
 }
 

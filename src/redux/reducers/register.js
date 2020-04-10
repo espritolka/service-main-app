@@ -6,7 +6,15 @@ const defaultState = {
     masters: [{ value: '', label: '' }],
     alertCustom: false,
     error: {
-        data: {},
+        data: {
+            schedule: {
+                time: {},
+                master: {},
+                date: ''
+            },
+            service: {},
+            client: {}
+        },
         master: '',
         time: ''
     },
@@ -52,7 +60,7 @@ export const registerReducer = function(state = defaultState, action) {
     switch (action.type) {
 
         case 'SET_ALERT':
-            return { ...state, alertCustom: action.payload, data: defaultState.data };
+            return { ...state, alertCustom: action.payload, data: defaultState.data ,  masters: defaultState.masters,};
         
         case actions.GET_DIRECTORY_TIME_SUCCESS:
             return { ...state, time: [...action.payload.data],  error: {...state.error, time:[]}};
@@ -73,7 +81,7 @@ export const registerReducer = function(state = defaultState, action) {
             return { ...state, masters: [{_id: null, label:null}], error: {...state.error, masters: action.payload }}
 
         case actions.CREATE_REGISTER_SUCCESS:
-            return { ...state, masters: defaultState.masters, alertCustom: true, error: {} };
+            return { ...state, alertCustom: true, error: defaultState.error};
             
         case actions.CREATE_REGISTER_ERROR:
             return { ...state, error: {...state.error, data : action.payload }};

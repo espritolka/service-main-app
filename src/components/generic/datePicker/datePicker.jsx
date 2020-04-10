@@ -108,7 +108,7 @@ const DatePickerCastom = ({...props}) => {
                             id={ id }
                             label={ false}
                             minDate = {new Date()}
-                            minDateMessage = {"Дата записи не может быть менее ранее сегодняшнего дня"}
+                            minDateMessage = {"Дата не может быть ранее сегодняшнего дня"}
                             format="dd.MM.yyyy"
                             clearLabel="очистить"
                             cancelLabel="отменить"
