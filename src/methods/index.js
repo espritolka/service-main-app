@@ -10,6 +10,16 @@ export function selectOptionsConverter (array){
     return newArray
 }
 
+export function selectOptionsConverterPrice (array){
+  let newArray = []
+    array.map((item) => {
+      item.value = item._id 
+      item.label = item.name ? item.name + ' (' + item.price + ' руб)': item.label
+      newArray.push(item)
+  })
+  return newArray
+}
+
 export function getMonthText (month){
   const MapMonth = new Map([
         [0  , "Января"],

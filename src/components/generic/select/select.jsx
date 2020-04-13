@@ -21,7 +21,6 @@ const Select = ({ ...props }) => {
 
     const customStyles = {
         option: (provided, state) => {
-              console.log(provided, state)
               return {
             ...provided,
             borderColor: '#F64383',

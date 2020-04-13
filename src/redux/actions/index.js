@@ -29,7 +29,7 @@ export const getDirectoryService = () => {
             .then((response) => {
                 dispatch({
                     type: actions.GET_DIRECTORY_SERVICES_SUCCESS,
-                    payload: {data: methods.selectOptionsConverter(response.data)}
+                    payload: {data: methods.selectOptionsConverterPrice(response.data)}
                 });
             })
             .catch((error)=>{
