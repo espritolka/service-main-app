@@ -35,7 +35,7 @@ const StatusModal = (props) => {
 }
 
     return(
-        <div>
+        <div data-testid = 'modal' >
          {getModal(alertCustom)}
         </div>
     )

@@ -12,7 +12,7 @@ const { color, type, children } = props
 }
 
 Text.propTypes = {
-    children: PropTypes.string.isRequired,
+    children: PropTypes.any.isRequired,
     type: PropTypes.string,
     color: PropTypes.string
 }
