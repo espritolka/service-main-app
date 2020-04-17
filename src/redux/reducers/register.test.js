@@ -1,8 +1,9 @@
 import { registerReducer } from './register';
 import ReactDOM from 'react-dom';
 import React from 'react';
-import '@testing-library/jest-dom/extend-expect'
-import axiosMock from 'axios'
+import '@testing-library/jest-dom/extend-expect';
+import { wait} from '@testing-library/react'
+import axios from 'axios'
 import { changeScheduleData, changeServiceData, changeClientData, createRegister } from '../actions/index'
 
 jest.mock('axios')
@@ -97,8 +98,8 @@ it('client should be chenged', () => {
 //     //1. test data
 //    let data = { test: '' }
 //    const resp = { data: 'ok' }
-//      axiosMock.post.mockImplementationOnce(() => Promise.resolve(resp))
-//     let action = await createRegister(data);
+//     axios.post.mockImplementationOnce(() => Promise.resolve(resp))
+//     let action = await createRegister(resp);
 
 //     let state = {
 //         error: {},
@@ -141,7 +142,10 @@ it('client should be chenged', () => {
 //     let newState = await registerReducer(state, action);
   
 //     //3. expectation
+// //  await wait(() => expect(newState.alertCustom).toBe(true));
 
-//     await expect(newState.alertCustom).toBe(true);
+//         expect(axios.post).toHaveBeenCalledWith(
+//             `localhost:3000/api/registers/register`,
+//         );
 // });
 

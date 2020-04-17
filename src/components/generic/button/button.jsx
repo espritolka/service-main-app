@@ -8,7 +8,7 @@ const ButtonMain = (props) => {
     const {onClickButton, children} = props
 
     return (
-        <div className ='button-box'>
+        <div className ='button-box' data-testid='button'>
             <button className="button-main" onClick={onClickButton}>
                 <p className='button-text'>{children}</p></button>
         </div>
