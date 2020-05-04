@@ -5,3 +5,15 @@ $background-color: #FFFFFF;
 $text-color: #120E21;
 $label-color: #808080;
 $border-color: #CCCCCC;
+
+@mixin flexible () {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  @mixin flexibleInLine () {
+    display: inline-flex;
+    align-items: flex-start;
+    justify-content: space-between;
+  }

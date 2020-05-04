@@ -52,16 +52,16 @@
     height: 38px;
     padding: 2px 8px;
     position: relative;
-};
 
-.input-box:hover {
-    border: solid 1px $primary-color;
-    box-shadow: 0 0 1px $primary-color;
-}
-.input-box:focus {
-    border: solid 1px $primary-color;
-    box-shadow: 0 0 1px $primary-color;
-}
+    &:hover {
+        border: solid 1px $primary-color;
+        box-shadow: 0 0 1px $primary-color;
+    }
+    &:focus {
+        border: solid 1px $primary-color;
+        box-shadow: 0 0 1px $primary-color;
+    }
+};
 
 .form-control {
     margin-top: 1em;
