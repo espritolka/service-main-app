@@ -16,4 +16,4 @@ API приложения [https://github.com/espritolka/service-api-app]
 
 Панель администратора [https://github.com/espritolka/service-admin-app]
 
-Технологии: ReactJS, Redux, axios, SCSS.
+Технологии: ReactJS, Redux, react-select, react-datepicker, axios, SCSS.
